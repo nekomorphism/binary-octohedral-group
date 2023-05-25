@@ -1,0 +1,170 @@
+#I  crisp package is not available. Check that the name is correct
+#I  and it is present in one of the GAP root directories (see '??RootPaths')
+gap> Read("/home/yuna/.config/emacs/elpa/gap-mode-20220815.2355/emacs.gaprc");
+gap> E(4)
+> ;
+E(4)
+gap> E(4)^4;
+1
+gap> sqrt2 := E(8)^5 + E(8)^7;
+-E(8)-E(8)^3
+gap> sqrt2^2
+> ;
+-2
+gap> BO := SmallGroup(48,28);
+<pc group of size 48 with 5 generators>
+gap> sqrt2 := E(8) + E(8)^4;
+-1+E(8)
+gap> sqrt2^2;
+1-2*E(8)+E(8)^2
+gap> BO := SmallGroup(48,28);
+<pc group of size 48 with 5 generators>
+gap> sqrt2 := E(8) + E(8)^3;
+E(8)+E(8)^3
+gap> sqrt2^2;
+-2
+gap> (E(8) + E(8)^3)^2;
+> ;
+-2
+gap> (E(8)^5 + E(8)^3)^2;
+-2
+gap> (E(8)^5 + E(8)^3)^2;
+2
+gap> 1/2
+> BO := SmallGroup(48,28);
+Syntax error: ; expected
+BO := SmallGroup(48,28);
+^^
+gap>
+gap> sqrt2 := E(8)^3 + E(8)^5;
+-E(8)+E(8)^3
+gap>
+gap> IdMat := [
+>            [1,0],
+>            [0,1]
+>           ];
+[ [ 1, 0 ], [ 0, 1 ] ]
+gap>
+gap> iMat := [
+>           [0,E(4)],
+>           [E(4),0]
+>          ];
+[ [ 0, E(4) ], [ E(4), 0 ] ]
+gap>
+gap> jMat := [
+>           [0,1],
+>           [-1,0]
+>          ];
+[ [ 0, 1 ], [ -1, 0 ] ]
+gap>
+gap> kMat := [
+>           [E(4),0],
+>           [0,E(4)^3]
+>          ];
+[ [ E(4), 0 ], [ 0, -E(4) ] ]
+gap>
+gap> uMat := 1/2 * (IdMat + iMat + jMat + kMat);
+[ [ 1/2+1/2*E(4), 1/2+1/2*E(4) ], [ -1/2+1/2*E(4), 1/2-1/2*E(4) ] ]
+gap>
+gap> tMat := 1/(sqrt2) * (IdMat + iMat);
+[ [ -1/2*E(8)+1/2*E(8)^3, -1/2*E(8)-1/2*E(8)^3 ], [ -1/2*E(8)-1/2*E(8)^3, -1/2*E(8)+1/2*E(8)^3 ] ]
+gap> # Cant right reals in GAP
+gap> sqrt2 := E(8)^3 + E(8)^5;
+-E(8)+E(8)^3
+gap>
+gap> #Matrix forms of the gens of BO in our chosen rep
+gap> IdMat := [
+>            [1,0],
+>            [0,1]
+>           ];
+[ [ 1, 0 ], [ 0, 1 ] ]
+gap>
+gap> iMat := [
+>           [0,E(4)],
+>           [E(4),0]
+>          ];
+[ [ 0, E(4) ], [ E(4), 0 ] ]
+gap>
+gap> jMat := [
+>           [0,1],
+>           [-1,0]
+>          ];
+[ [ 0, 1 ], [ -1, 0 ] ]
+gap>
+gap> kMat := [
+>           [E(4),0],
+>           [0,E(4)^3]
+>          ];
+[ [ E(4), 0 ], [ 0, -E(4) ] ]
+gap>
+gap> uMat := 1/2 * (IdMat + iMat + jMat + kMat);
+[ [ 1/2+1/2*E(4), 1/2+1/2*E(4) ], [ -1/2+1/2*E(4), 1/2-1/2*E(4) ] ]
+gap>
+gap> tMat := 1/(sqrt2) * (IdMat + iMat);
+[ [ -1/2*E(8)+1/2*E(8)^3, -1/2*E(8)-1/2*E(8)^3 ], [ -1/2*E(8)-1/2*E(8)^3, -1/2*E(8)+1/2*E(8)^3 ] ]
+gap>
+gap> # Our matrix form of BO
+gap> MBO := Group([
+>                IdMat,
+>                jMat,
+>                kMat,
+>                uMat,
+>                tMat
+>                 ]);
+Group([ [ [ 1, 0 ], [ 0, 1 ] ], [ [ 0, E(4) ], [ E(4), 0 ] ], [ [ 0, 1 ], [ -1, 0 ] ], [ [ E(4), 0 ], [ 0, -E(4) ] ],
+  [ [ 1/2+1/2*E(4), 1/2+1/2*E(4) ], [ -1/2+1/2*E(4), 1/2-1/2*E(4) ] ],
+  [ [ -1/2*E(8)+1/2*E(8)^3, -1/2*E(8)-1/2*E(8)^3 ], [ -1/2*E(8)-1/2*E(8)^3, -1/2*E(8)+1/2*E(8)^3 ] ] ])
+gap>
+gap>
+gap> # GAP form of BO
+gap> GBO := SmallGroup(48,28);
+<pc group of size 48 with 5 generators>
+gap> Order MBO
+Syntax error: ; expected
+Order MBO
+      ^^^
+gap> ;
+gap> Order(MBO);
+48
+gap> foo := GeneratorsOfGroup(GBO);
+[ f1, f2, f3, f4, f5 ]
+gap> bar :=GeneratorsOfGroup(MBO);
+[ [ [ 1, 0 ], [ 0, 1 ] ], [ [ 0, E(4) ], [ E(4), 0 ] ], [ [ 0, 1 ], [ -1, 0 ] ], [ [ E(4), 0 ], [ 0, -E(4) ] ],
+  [ [ 1/2+1/2*E(4), 1/2+1/2*E(4) ], [ -1/2+1/2*E(4), 1/2-1/2*E(4) ] ],
+  [ [ -1/2*E(8)+1/2*E(8)^3, -1/2*E(8)-1/2*E(8)^3 ], [ -1/2*E(8)-1/2*E(8)^3, -1/2*E(8)+1/2*E(8)^3 ] ] ]
+gap> foo := GeneratorsOfGroup(GBO);
+[ f1, f2, f3, f4, f5 ]
+gap> bar :=GeneratorsOfGroup(MBO);
+[ [ [ 1, 0 ], [ 0, 1 ] ], [ [ 0, E(4) ], [ E(4), 0 ] ], [ [ 0, 1 ], [ -1, 0 ] ], [ [ E(4), 0 ], [ 0, -E(4) ] ],
+  [ [ 1/2+1/2*E(4), 1/2+1/2*E(4) ], [ -1/2+1/2*E(4), 1/2-1/2*E(4) ] ],
+  [ [ -1/2*E(8)+1/2*E(8)^3, -1/2*E(8)-1/2*E(8)^3 ], [ -1/2*E(8)-1/2*E(8)^3, -1/2*E(8)+1/2*E(8)^3 ] ] ]
+gap> GroupHomomorphismByImages(MBO, GBO);
+Error, <gens> and <imgs> must be lists of same length at /usr/share/gap/lib/ghom.gi:300 called from
+GroupGeneralMappingByImagesNC( NiceObject( G ), H, geni, imgs ) at /usr/share/gap/lib/grpnice.gi:954 called from
+GroupGeneralMappingByImagesNC( G, H, gens, imgs ) at /usr/share/gap/lib/ghom.gi:421 called from
+GroupGeneralMappingByImages( G, H, Ggens, Hgens ) at /usr/share/gap/lib/ghom.gi:64 called from
+<function "GroupHomomorphismByImages">( <arguments> )
+ called from read-eval loop at *stdin*:94
+you can 'quit;' to quit to outer loop, or
+you can 'return;' to continue
+brk>
+gap> GroupHomomorphismByImages(MBO, GBO);
+Error, <gens> and <imgs> must be lists of same length at /usr/share/gap/lib/ghom.gi:300 called from
+GroupGeneralMappingByImagesNC( G, H, gens, imgs ) at /usr/share/gap/lib/ghom.gi:421 called from
+GroupGeneralMappingByImages( G, H, Ggens, Hgens ) at /usr/share/gap/lib/ghom.gi:64 called from
+<function "GroupHomomorphismByImages">( <arguments> )
+ called from read-eval loop at *stdin*:94
+you can 'quit;' to quit to outer loop, or
+you can 'return;' to continue
+brk> quit
+> Size(foo);
+Syntax error: ; expected in *errin*:2
+Size(foo);
+^^^^
+[ f1, f2, f3, f4, f5 ]
+brk>
+gap> Length(foo);
+5
+gap> Length(bar);
+6
+gap>
